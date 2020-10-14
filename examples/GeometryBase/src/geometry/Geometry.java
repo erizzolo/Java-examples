@@ -21,7 +21,7 @@ public class Geometry {
         PuntoMobile pmDefault = new PuntoMobile();
         System.out.println("Default PuntoMobile: " + pmDefault);
         pmDefault.move(1.0, 1.0);
-        System.out.println("Default PuntoMobile: " + pmDefault);
+        System.out.println("Default PuntoMobile traslato: " + pmDefault);
     }
 
 }

@@ -22,7 +22,7 @@ public class PuntoMobile extends Punto {
      * Costruisce ed inizializza, cioè istanzia, un punto con attributi di
      * default.
      *
-     * Richiama il costruttore completo (dopo il super() implicito
+     * Richiama il costruttore completo
      */
     public PuntoMobile() {
         // this(...) dev'essere la prima istruzione
@@ -42,9 +42,9 @@ public class PuntoMobile extends Punto {
      * @param y the y coordinate
      */
     public PuntoMobile(double x, double y) {
-        debug("-> PuntoMobile(" + x + "," + y + ")");
-        setX(x);
-        setY(y);
+        // super(...) dev'essere la prima istruzione
+        // debug("-> PuntoMobile(" + x + "," + y + ")");
+        super(x,y);
         distance = 0.0;
         debug("PuntoMobile(" + x + "," + y + ") ->");
     }
