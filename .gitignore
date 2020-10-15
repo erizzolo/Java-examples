@@ -29,3 +29,7 @@ hs_err_pid*
 /examples/GeometryBase/dist/
 /examples/Arrays/nbproject/private/
 /examples/Arrays/build/
+/solutions/Cronometro/nbproject/private/
+/solutions/Cronometro/build/
+/solutions/Cronometro/dist/
+/examples/Arrays/dist/

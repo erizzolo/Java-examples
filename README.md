@@ -12,6 +12,6 @@ Examples of Java code for students 4AIN & 4BIN.
 | [Arrays](examples/Arrays)               | Arrays utilities                                        |
 | [GeometryBase](examples/GeometryBase)   | Inheritance                                             |
 ### List of exercises
-| exercise                                         | topic                                | solution |
-| ------------------------------------------------ | ------------------------------------ | -------- |
-| [Cronometro](exercises/Cronometro/Cronometro.md) | Simple class, attributes and methods | N/A      |
+| exercise                                         | topic                                | solution                     |
+| ------------------------------------------------ | ------------------------------------ | ---------------------------- |
+| [Cronometro](exercises/Cronometro/Cronometro.md) | Simple class, attributes and methods | [here](solutions/Cronometro) |
