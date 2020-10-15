@@ -44,11 +44,22 @@ public class PuntoMobile extends Punto {
     public PuntoMobile(double x, double y) {
         // super(...) dev'essere la prima istruzione
         // debug("-> PuntoMobile(" + x + "," + y + ")");
-        super(x,y);
+        super(x, y);
         distance = 0.0;
         debug("PuntoMobile(" + x + "," + y + ") ->");
     }
 
+    // Information hiding; getters
+    /**
+     * Get the value of the distance travelled by this Punto
+     *
+     * @return the value of the distance travelled
+     */
+    public double getDistance() {
+        return distance;
+    }
+
+    // new methods
     /**
      * Trasla il punto delle quantità specificate
      *
@@ -65,14 +76,16 @@ public class PuntoMobile extends Punto {
         debug("PuntoMobile.move(" + dx + "," + dy + ") ->");
     }
 
-    // Information hiding; getters
     /**
-     * Get the value of the distance travelled by this Punto
-     *
-     * @return the value of the distance travelled
+     * Trasla il punto a coordinate non valide, generando un'eccezione
+     * 
+     * @throws IllegalArgumentException
      */
-    public double getDistance() {
-        return distance;
+    public void moveToBlackHole() {
+        debug("-> PuntoMobile.moveToBlackHole()");
+        setX(Double.NaN);
+        setY(Double.NaN);
+        debug("PuntoMobile.moveToBlackHole() ->");
     }
 
     @Override

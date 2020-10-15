@@ -107,10 +107,11 @@ public class Punto {
      */
     protected final void setX(double x) {
         debug("-> setX(" + x + ")");
-        if (x == Double.NaN || x == Double.POSITIVE_INFINITY || x == Double.NEGATIVE_INFINITY) {
-            throw new IllegalArgumentException("x coordinate cannot be NaN, +INf or -INF.");
+        if (Double.isFinite(x)) {
+            this.x = x;
+        } else {
+            throw new IllegalArgumentException("x coordinate cannot be NaN, +Infinity or -Infinity.");
         }
-        this.x = x;
         debug("setX(" + x + ") ->");
     }
 
@@ -121,10 +122,11 @@ public class Punto {
      */
     protected final void setY(double y) {
         debug("-> setY(" + y + ")");
-        if (y == Double.NaN || y == Double.POSITIVE_INFINITY || y == Double.NEGATIVE_INFINITY) {
-            throw new IllegalArgumentException("y coordinate cannot be NaN, +INf or -INF.");
+        if (Double.isFinite(y)) {
+            this.y = y;
+        } else {
+            throw new IllegalArgumentException("y coordinate cannot be NaN, +Infinity or -Infinity.");
         }
-        this.y = y;
         debug("setY(" + y + ") ->");
     }
 

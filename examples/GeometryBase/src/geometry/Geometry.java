@@ -22,6 +22,16 @@ public class Geometry {
         System.out.println("Default PuntoMobile: " + pmDefault);
         pmDefault.move(1.0, 1.0);
         System.out.println("Default PuntoMobile traslato: " + pmDefault);
+        try {
+            Punto.debug("Cerco di impostare coordinate non valide...");
+            pmDefault.moveToBlackHole();
+            Punto.debug("Questa istruzione non sarà eseguita...");
+        } catch (IllegalArgumentException e) {
+            Punto.debug("Intercettata eccezione: " + e);
+        } finally {
+            Punto.debug("Questa istruzione sarà comunque eseguita...");
+        }
+        Punto.debug("Termine applicazione");
     }
 
 }
