@@ -11,6 +11,7 @@ Examples of Java code for students 4AIN & 4BIN.
 | [Accessibility](examples/Accessibility) | Member accessibility                                    |
 | [Arrays](examples/Arrays)               | Arrays utilities                                        |
 | [GeometryBase](examples/GeometryBase)   | Inheritance                                             |
+| [Static](examples/Static)               | Static keyword                                          |
 ### List of exercises
 | exercise                                         | topic                                | solution                     |
 | ------------------------------------------------ | ------------------------------------ | ---------------------------- |
