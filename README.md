@@ -17,3 +17,4 @@ Examples of Java code for students 4AIN & 4BIN.
 | exercise                                         | topic                                | solution                     |
 | ------------------------------------------------ | ------------------------------------ | ---------------------------- |
 | [Cronometro](exercises/Cronometro/Cronometro.md) | Simple class, attributes and methods | [here](solutions/Cronometro) |
+| [Punti3D](exercises/Punti3D.md)                  | Simple modification                  | N/A yet                      |
