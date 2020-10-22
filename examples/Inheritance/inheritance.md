@@ -45,7 +45,8 @@ Esempio delle classi Punto e PuntoMobile:
 >In Java, **per le classi**, è supportata solo l'ereditarietà *singola*, ovvero la *parent class* è una sola: di conseguenza, la gerarchia di ereditarietà è un albero.
 
 ### List of examples
-| example        | topic                       |
-| -------------- | --------------------------- |
-| [Basic](Basic) | Esempio Punto / PuntoMobile |
-| [Geometry](Geometry) | Esempio con classi *abstract* e *interfaces* |
+| example              | topic                                                                            |
+| -------------------- | -------------------------------------------------------------------------------- |
+| [Basic](Basic)       | Esempio Punto / PuntoMobile                                                      |
+| [Geometry](Geometry) | Esempio con classi *abstract* e *interfaces*                                     |
+| [LSP](LSP)           | Esempio di buono e cattivo uso dell'ereditarietà (Liskov Substitution Principle) |
