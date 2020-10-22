@@ -48,3 +48,4 @@ Esempio delle classi Punto e PuntoMobile:
 | example        | topic                       |
 | -------------- | --------------------------- |
 | [Basic](Basic) | Esempio Punto / PuntoMobile |
+| [Geometry](Geometry) | Esempio con classi *abstract* e *interfaces* |
