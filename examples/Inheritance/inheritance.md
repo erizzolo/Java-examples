@@ -37,8 +37,8 @@ Esempio delle classi Punto e PuntoMobile:
 * ereditati attributi: *static DEBUG* e *static ORIGIN*
 * aggiunti attributi: *dx*, *dy*, *travelledDistance* e *static maxTravelledDistance*
 * ereditato (ma non accessibile) metodo: *check*
-* ereditati metodi: *getMedio*, *getDistanceFrom*, *static getRandom* e *static test*
-* ereditati e ridefiniti metodi: *getX*, *getY* e *toString*
+* ereditati metodi: *static getMedio*, *getDistanceFrom*, *static getRandom* e *static test*
+* ereditati e ridefiniti metodi: *getX*, *getY*, *toString* e *getSymmetric* (now public instead of private)
 * aggiunto metodo *move*, *getter vari* (static e non)
 * aggiunti metodi *static getRandom* e *static test* con diverso tipo di ritorno, *PuntoMobile* anziché *Punto* (non proprio un *override*)
 

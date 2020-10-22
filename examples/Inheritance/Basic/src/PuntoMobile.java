@@ -106,6 +106,16 @@ public class PuntoMobile extends Punto {
         return super.getY() + dy;
     }
 
+    // a private method ("constructor" ???) becoming public
+    /**
+     * Restituisce il punto simmetrico rispetto all'origine
+     * 
+     * @return the PuntoMobile symmetric to this with respect to the origin
+     */
+    public PuntoMobile getSymmetric() {
+        return new PuntoMobile(-getX(), -getY());
+    }
+
     // Fare sempre l'override di toString per comodità in debug, errori e altro
     @Override
     public String toString() {
@@ -131,14 +141,24 @@ public class PuntoMobile extends Punto {
         // like getRandom, getMedio, ORIGIN
         // because they are inherited
         PuntoMobile p = new PuntoMobile(1.5, 2.5);
-        System.out.println(p);
-        PuntoMobile rm = getRandom();
-        System.out.println(rm);
-        System.out.println(getMedio(p, rm)); // no need of "Punto." because inherited
-        System.out.println(p.getDistanceFrom(ORIGIN));
-        p.move(-1.5, -2.5);
-        System.out.println(p + ": getX() = " + p.getX() + ", getY() = " + p.getY());
-        System.out.println(p.getDistanceFrom(ORIGIN));
+        System.out.println("p = new PuntoMobile(1.5, 2.5): " + p);
+        Punto r = getRandom();
+        System.out.println("r = getRandom(): " + r);
+        System.out.println("getMedio(p, r): " + getMedio(p, r));
+        System.out.println("ORIGIN: " + ORIGIN);
+        System.out.println("distance(ORIGIN, p): " + ORIGIN.getDistanceFrom(p));
+        System.out.println("distance(p, ORIGIN): " + p.getDistanceFrom(ORIGIN));
+        System.out.println("distance(p, null): " + p.getDistanceFrom(null));
+        System.out.println("Moving p to the origin: p.move(-p.getX(), -p.getY());");
+        p.move(-p.getX(), -p.getY());
+        System.out.println("p: " + p);
+        Punto copy = new PuntoMobile(p);
+        System.out.println("copy = new PuntoMobile(p): " + copy);
+        System.out.println("p.getSymmetric(): " + p.getSymmetric());
+        System.out.println("Something doesn't work as expected:");
+        System.out.println("distance(ORIGIN, p): " + ORIGIN.getDistanceFrom(p));
+        System.out.println("getMedio(p, ORIGIN): " + getMedio(p, ORIGIN));
+        System.out.println("Because we didn't use getters when we could have ...");
         return getRandom();
     }
 

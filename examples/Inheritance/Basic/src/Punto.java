@@ -10,7 +10,7 @@ import java.util.Random;
 public class Punto {
 
     // per attivare/disattivare output di debug
-    public static boolean DEBUG = false;
+    public static boolean DEBUG = true;
 
     public static void debug(String s) {
         if (DEBUG) {
@@ -99,7 +99,7 @@ public class Punto {
         return result;
     }
 
-    // Information hiding; getters
+    // Information hiding: getters
     /**
      * Get the value of the x coordinate of this Punto
      *
@@ -145,10 +145,19 @@ public class Punto {
         return other == null ? Double.NaN : Math.hypot(getX() - other.getX(), getY() - other.getY());
     }
 
-    // Fare sempre l'override di toString per comodità in debug, errori e altro
+    // a private method ("constructor" ???)
+    /**
+     * Restituisce il punto simmetrico rispetto all'origine
+     * 
+     * @return the Punto symmetric to this with respect to the origin
+     */
+    private Punto getSymmetric() {
+        return new Punto(-x, -y);
+    }
+
     @Override
     public String toString() {
-        return super.toString() + "[x=" + x + ", y=" + y + "]";
+        return super.toString() + "[x=" + getX() + ", y=" + getY() + "]";
     }
 
     // a simple test of this class
@@ -156,16 +165,18 @@ public class Punto {
         // Basic tests of Punto
         System.out.println("Test of Punto");
         Punto p = new Punto(1.5, 2.5);
-        System.out.println(p);
+        System.out.println("p = new Punto(1.5, 2.5): " + p);
         Punto r = getRandom();
-        System.out.println(r);
-        System.out.println(getMedio(p, r));
-        System.out.println(ORIGIN);
-        System.out.println(ORIGIN.getDistanceFrom(p));
-        System.out.println(p.getDistanceFrom(ORIGIN));
-        System.out.println(p.getDistanceFrom(null));
+        System.out.println("r = getRandom(): " + r);
+        System.out.println("getMedio(p, r): " + getMedio(p, r));
+        System.out.println("ORIGIN: " + ORIGIN);
+        System.out.println("distance(ORIGIN, p): " + ORIGIN.getDistanceFrom(p));
+        System.out.println("distance(p, ORIGIN): " + p.getDistanceFrom(ORIGIN));
+        System.out.println("distance(p, null): " + p.getDistanceFrom(null));
         Punto copy = new Punto(p);
-        System.out.println(copy);
+        System.out.println("copy = new Punto(p): " + copy);
+        System.out.println("p.getSymmetric(): " + p.getSymmetric());
+
         return ORIGIN;
     }
 }
