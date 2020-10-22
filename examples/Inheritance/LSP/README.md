@@ -19,9 +19,6 @@ A questo punto ne derivo la classe **Square**, e la cosa funziona perché gli og
 A questo punto ne derivo la classe **SquareScalable**, e la cosa funziona perché i quadrati ridimensionati restano quadrati.
 3. Se voglio poter modificare le proporzioni originali degli oggetti *Rectangle*, posso introdure un'operazione *resize(double baseFactor, double heightFactor)* che non necessariamente mantiene le proporzioni originali. Quindi derivo da *RectangleScalable* una classe **RectangleResizable** con un metodo *resize(double baseFactor, double heightFactor)* che ridimensiona il rettangolo, senza necessariamente mantenerne le proporzioni. A questo punto non posso più derivare la classe **SquareResizable**, perché i quadrati ridimensionati in tal modo non sarebbero più dei quadrati!!!
 
-
-Questo viola il principio, perché in realtà quella che ho definito come classe **Rectangle** è in realtà la classe **RectangleWithIndependentlyResizableSides**, e naturalmente un quadrato non rientra in questa definizione.
-
 ## Morale
 Ricordarsi che l'ereditarietà rappresenta delle gerarchie **is-A**, che devono valere **SEMPRE** e **SENZA CONDIZIONI**.
 
