@@ -15,6 +15,7 @@ Examples of Java code for students 4AIN & 4BIN.
 | [Inheritance](examples/Inheritance/inheritance.md) | Inheritance examples                                    |
 | [Enums](examples/Enums/README.md)                  | Enum classes                                            |
 | [Interfaces](examples/Interfaces/README.md)        | Interfaces and abstract classes                         |
+| [Collections](examples/Collections/README.md)      | Collections                                             |
 ### List of exercises
 | exercise                                         | topic                                | solution                     |
 | ------------------------------------------------ | ------------------------------------ | ---------------------------- |
