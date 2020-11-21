@@ -54,7 +54,7 @@ public static Horse readFromFile(String filename) throws NullPointerException, F
 ## Gestione di anomalie
 La gestione delle anomalie sfrutta il costrutto *try, catch, finally* e consente di "rimediare" alle anomalie prendendo opportuni provvedimenti ed evitando in genere che si propaghino ulteriormente.
 
-Il costrutto è formato da un blocco "try", uno o più blocchi "catch" ed opzionalmente di un blocco "finally".
+Il costrutto è formato da un blocco "try", zero o più blocchi "catch" (di norma almeno uno) ed opzionalmente di un blocco "finally".
 
 Ad esempio:
 ```Java
