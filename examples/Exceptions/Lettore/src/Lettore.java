@@ -26,7 +26,7 @@ public class Lettore {
 
     private static void printFile(String name) throws FileNotFoundException {
         Scanner input = new Scanner(new File(name));
-        while (input.hasNext()) {
+        while (input.hasNextLine()) {
             String line = input.nextLine();
             System.out.println(line);
         }

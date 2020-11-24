@@ -145,7 +145,64 @@ Come per qualunque classe non final, anche *Exception* o le sue sottoclassi poss
 Da fare
 
 ### Catene di anomalie
-Uso sensato del parametro *cause* ...
+Uso sensato del parametro *cause* ... ad esempio:
+```Java
+@Override
+public void getta(Riempibile r, Chiave k) {
+    if (!smaltito) {
+        try {
+            r.inserisci(this, k);
+            smaltito = true;
+        } catch (ContenitorePienoException
+                | MaterialeNonCompatibileException
+                | ChiaveNonCorrettaException ex) {
+            throw new RifiutoNonSmaltitoException("Rifiuto non smaltito.", ex);
+        } 
+    }
+}
+```
+In questo caso le eccezioni checked della clausola catch vengono "trasformate" in una eccezione unchecked con causa.
 
 ### try-with-resource
-Per le risorse necessarie al try che sono *Closeable* ...
+Il costrutto *try-with-resource* consente di semplificare la gestione delle eccezioni quando il blocco try acquisisce delle risorse (ad esempio file, connessioni di rete, ecc.) che sono *Closeable*, anzi *AutoCloseable*.
+
+Considerate il seguente metodo:
+```Java
+static void printNumbers(String name) throws FileNotFoundException {
+    Scanner input = new Scanner(new File(name));
+    while (input.hasNextLine()) {
+        System.out.println(Double.parseDouble(input.nextLine()));
+    }
+    input.close();
+}
+```
+e pensate di avere una linea contenente "abcde": il *parseDouble* genera una *NumberFormatException* che interrompe l'esecuzione e lascia il file aperto!
+
+Per ovviare a ciò dovrei scrivere:
+```Java
+static void printNumbers(String name) throws FileNotFoundException {
+    Scanner input = null;
+    try {
+        input = new Scanner(new File(name));
+        while (input.hasNextLine()) {
+            System.out.println(Double.parseDouble(input.nextLine()));
+        }
+    } finally {
+        if (input != null) {
+            input.close();
+        }
+    }
+}
+```
+Il costrutto *try-with-resource* semplifica la scrittura e garantisce che il metodo *close* sia richiamato comunque:
+```Java
+static void printNumbers(String name) throws FileNotFoundException {
+    try (Scanner input = new Scanner(new File(name))) {
+        while (input.hasNextLine()) {
+            String line = input.nextLine();
+            System.out.println(Double.parseDouble(line));
+        }
+    }
+}
+```
+Naturalmente anch'esso può prevedere clausole *catch* e blocco *finally*.

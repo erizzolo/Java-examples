@@ -16,6 +16,7 @@ Examples of Java code for students 4AIN & 4BIN.
 | [Enums](examples/Enums/README.md)                  | Enum classes                                            |
 | [Interfaces](examples/Interfaces/README.md)        | Interfaces and abstract classes                         |
 | [Collections](examples/Collections/README.md)      | Collections                                             |
+| [Exceptions](examples/Exceptions/README.md)        | Exceptions                                              |
 ### List of exercises
 | exercise                                         | topic                                | solution                     |
 | ------------------------------------------------ | ------------------------------------ | ---------------------------- |

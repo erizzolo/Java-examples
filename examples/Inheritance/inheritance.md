@@ -28,7 +28,7 @@ La sottoclasse può:
   * solo quelli non dichiarati *final*
   * senza cambiare il tipo di ritorno
   * senza ridurre l'accessibilità
-  * senza aggiungere clausole *throws*
+  * senza aggiungere clausole *throws* (può però eliminarle o "ridurre" le eccezioni)
 >Per i metodi static è possibile *"ridefinirli"*, anche specializzando il tipo di ritorno, ma di fatto si tratta di **nuovi** metodi.
 
 Esempio delle classi Punto e PuntoMobile:
