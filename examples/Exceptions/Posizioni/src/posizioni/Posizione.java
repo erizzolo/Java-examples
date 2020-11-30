@@ -1,7 +1,11 @@
 package posizioni;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
@@ -41,6 +45,41 @@ public class Posizione {
     @Override
     public String toString() {
         return indirizzo + " (" + latitudine + ", " + longitudine + ")";
+    }
+
+    public static void writeToFile(Collection<Posizione> posizioni, String filename) {
+        BufferedWriter output = null;
+        try {
+            // output = Files.newBufferedWriter(Paths.get(filename),
+            // StandardOpenOption.APPEND, StandardOpenOption.CREATE);
+            output = Files.newBufferedWriter(Paths.get(filename));
+            // operazioni su file
+            output.write("# latitudine,longitudine,indirizzo");
+            output.newLine();
+            output.write("# " + posizioni.size() + " posizioni");
+            output.newLine();
+            int written = 0;
+            for (Posizione posizione : posizioni) {
+                output.write("" + posizione.getLatitudine());
+                output.write("," + posizione.getLongitudine());
+                output.write("," + posizione.getIndirizzo());
+                output.newLine();
+                written++;
+            }
+            output.write("# " + written + " posizioni");
+            output.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // chiusura file
+            if (output != null) {
+                try {
+                    output.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     public static Collection<Posizione> readFromFile(String filename) {

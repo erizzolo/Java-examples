@@ -21,7 +21,9 @@ public class Posizioni {
         for (Posizione p : posizioni) {
             System.out.println(p);
         }
-        
+
+        Posizione.writeToFile(posizioni, "src/posizioni/salvataggio.txt");
+
         try {
             Collection<Posizione> tryReadFromFile = Posizione.tryReadFromFile("src/posizioni/posizioni.txt");
             for (Posizione posizione1 : tryReadFromFile) {
@@ -34,7 +36,7 @@ public class Posizioni {
             } catch (IOException ex1) {
             }
         }
-        
+
     }
-    
+
 }
