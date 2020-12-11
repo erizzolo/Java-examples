@@ -24,6 +24,11 @@ public class Posizioni {
 
         Posizione.writeToFile(posizioni, "src/posizioni/salvataggio.txt");
 
+        Posizione.writeToFile(posizioni, "src/posizioni/salvataggio.json", "JSON");
+
+        Posizione.writeToFile(posizioni, "src/posizioni/salvataggio.xml", "XML");
+        Posizione.writeToNetwork(posizioni, "www.google.it", "XML");
+
         try {
             Collection<Posizione> tryReadFromFile = Posizione.tryReadFromFile("src/posizioni/posizioni.txt");
             for (Posizione posizione1 : tryReadFromFile) {

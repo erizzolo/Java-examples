@@ -4,6 +4,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.net.InetAddress;
+import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -47,27 +50,37 @@ public class Posizione {
         return indirizzo + " (" + latitudine + ", " + longitudine + ")";
     }
 
+    public String toString(String formato) {
+        String result = "";
+        switch (formato) {
+            case "CSV":
+                result += getLatitudine() + "," + getLongitudine() + "," + getIndirizzo();
+                break;
+            case "JSON":
+                result += "{ \"latitudine\": " + getLatitudine();
+                result += ", \"longitudine\": " + getLongitudine();
+                result += ", \"indirizzo\": \"" + getIndirizzo() + "\" }";
+                break;
+            case "XML":
+                result += "<posizione>";
+                result += "<latitudine>" + getLatitudine() + "</latitudine>";
+                result += "<longitudine>" + getLongitudine() + "</longitudine>";
+                result += "<indirizzo>" + getIndirizzo() + "</indirizzo>";
+                result += "</posizione>";
+                break;
+            default:
+                result = toString();
+        }
+        return result;
+    }
+
     public static void writeToFile(Collection<Posizione> posizioni, String filename) {
         BufferedWriter output = null;
         try {
             // output = Files.newBufferedWriter(Paths.get(filename),
             // StandardOpenOption.APPEND, StandardOpenOption.CREATE);
             output = Files.newBufferedWriter(Paths.get(filename));
-            // operazioni su file
-            output.write("# latitudine,longitudine,indirizzo");
-            output.newLine();
-            output.write("# " + posizioni.size() + " posizioni");
-            output.newLine();
-            int written = 0;
-            for (Posizione posizione : posizioni) {
-                output.write("" + posizione.getLatitudine());
-                output.write("," + posizione.getLongitudine());
-                output.write("," + posizione.getIndirizzo());
-                output.newLine();
-                written++;
-            }
-            output.write("# " + written + " posizioni");
-            output.newLine();
+            writeCollection(posizioni, "CSV", output);
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -80,6 +93,67 @@ public class Posizione {
                 }
             }
         }
+    }
+
+    public static void writeToNetwork(Collection<Posizione> posizioni, String hostname, String formato) {
+        Socket socket = null;
+        try {
+            InetAddress host = InetAddress.getByName(hostname);
+            socket = new Socket(host, 80);
+            OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
+            BufferedWriter output = new BufferedWriter(osw);
+            writeCollection(posizioni, formato, output);
+            System.out.println("Written to " + socket);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // chiusura file
+            if (socket != null) {
+                try {
+                    socket.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void writeToFile(Collection<Posizione> posizioni, String filename, String formato) {
+        BufferedWriter output = null;
+        try {
+            // output = Files.newBufferedWriter(Paths.get(filename),
+            // StandardOpenOption.APPEND, StandardOpenOption.CREATE);
+            output = Files.newBufferedWriter(Paths.get(filename));
+            writeCollection(posizioni, formato, output);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            // chiusura file
+            if (output != null) {
+                try {
+                    output.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private static void writeCollection(Collection<Posizione> posizioni, String formato, BufferedWriter output)
+            throws IOException {
+        // operazioni su file
+        output.write("# formato: " + formato);
+        output.newLine();
+        output.write("# " + posizioni.size() + " posizioni");
+        output.newLine();
+        int written = 0;
+        for (Posizione posizione : posizioni) {
+            output.write(posizione.toString(formato));
+            output.newLine();
+            written++;
+        }
+        output.write("# " + written + " posizioni");
+        output.newLine();
     }
 
     public static Collection<Posizione> readFromFile(String filename) {
