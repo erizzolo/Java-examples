@@ -17,6 +17,9 @@ Examples of Java code for students 4AIN & 4BIN.
 | [Interfaces](examples/Interfaces/README.md)        | Interfaces and abstract classes                         |
 | [Collections](examples/Collections/README.md)      | Collections                                             |
 | [Exceptions](examples/Exceptions/README.md)        | Exceptions                                              |
+| [JavaFX](examples/JavaFX/BaseFX/README.md)         | JavaFX                                                  |
+| [JavaFX](examples/JavaFX/BaseFXML/README.md)       | JavaFX with xml                                         |
+| [Threads](examples/Threads/README.md)              | Threads                                                 |
 ### List of exercises
 | exercise                                         | topic                                | solution                     |
 | ------------------------------------------------ | ------------------------------------ | ---------------------------- |
