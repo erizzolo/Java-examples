@@ -39,16 +39,16 @@ e permette di specificare:
 * il ``long stackSize`` che specifica la dimensione dello stack associato al Thread
 
 ### Metodi principali
-I metodi fondamentali della classe ``Thread`` sono ``public void begin()`` e ``public void run()``.
+I metodi fondamentali della classe ``Thread`` sono ``public void start()`` e ``public void run()``.
 
-Il metodo ``public void begin()`` avvia l'esecuzione concorrente del thread (che eseguirà il metodo ``run()``).
->Si noti che il metodo ``begin()`` può essere invocato **solo 1 volta** su uno specifico Thread:
+Il metodo ``public void start()`` avvia l'esecuzione concorrente del thread (che eseguirà il metodo ``run()``).
+>Si noti che il metodo ``start()`` può essere invocato **solo 1 volta** su uno specifico Thread:
 >
->**It is never legal to begin a thread more than once.**
+>**It is never legal to start a thread more than once.**
 
 Il risultato del metodo è che vi sono *due* Thread in esecuzione concorrente:
-* il Thread "corrente", che ha chiamato il metodo begin()
-* il Thread sul quale è stato invocato begin()
+* il Thread "corrente", che ha chiamato il metodo start()
+* il Thread sul quale è stato invocato start()
 
 Il metodo ``public void run()`` contiene il codice che sarà eseguito dal thread. Il metodo fa parte dell'interfaccia ``Runnable``, e **dovrebbe** essere ridefinito dalle sottoclassi di ``Thread``.
 
