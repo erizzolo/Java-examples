@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Java Program",
+            "request": "launch",
+            "mainClass": "App",
+            "vmArgs": "-p /usr/share/openjfx/lib --add-modules javafx.controls"
+        }
+    ]
+}
