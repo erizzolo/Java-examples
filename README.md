@@ -20,6 +20,7 @@ Examples of Java code for students 4AIN & 4BIN.
 | [JavaFX](examples/JavaFX/BaseFX/README.md)         | JavaFX                                                  |
 | [JavaFX](examples/JavaFX/BaseFXML/README.md)       | JavaFX with xml                                         |
 | [Threads](examples/Threads/README.md)              | Threads                                                 |
+| [Streams](examples/Streams/README.md)              | Streams                                                 |
 ### List of exercises
 | exercise                                         | topic                                | solution                     |
 | ------------------------------------------------ | ------------------------------------ | ---------------------------- |

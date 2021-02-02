@@ -8,3 +8,4 @@ Elenco degli esempi:
 * [Esempio di race condition](RaceConditions/README.md)
 * [Altro esempio di race condition](Race/README.md)
 * [Esempio di deadlock](Deadlocks/README.md)
+* [Esempio di collaborazione](CopyThreads/README.md)
