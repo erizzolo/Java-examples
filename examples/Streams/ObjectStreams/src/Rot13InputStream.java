@@ -21,9 +21,9 @@ public class Rot13InputStream extends FilterInputStream {
 
     @Override
     public int read(byte[] b, int off, int len) throws IOException {
-        int read = in.read(b,off,len);
-        for (int i = off; i < off+read; i++) {
-            b[i] =  (byte) ((b[i] + 13) & 0xFF);
+        int read = in.read(b, off, len);
+        for (int i = off; i < off + read; i++) {
+            b[i] = (byte) ((b[i] + 13) & 0xFF);
         }
         return read;
     }
