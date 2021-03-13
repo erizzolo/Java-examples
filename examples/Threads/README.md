@@ -9,3 +9,4 @@ Elenco degli esempi:
 * [Altro esempio di race condition](Race/README.md)
 * [Esempio di deadlock](Deadlocks/README.md)
 * [Esempio di collaborazione](CopyThreads/README.md)
+* [Esempio di competizione](MissK/README.md)
