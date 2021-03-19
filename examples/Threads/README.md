@@ -12,3 +12,4 @@ Elenco degli esempi:
 * [Esempio di competizione singola](MissK/README.md)
 * [Esempio di competizione singola](Banca/README.md)
 * [Esempio di competizione multipla](Parcheggio/README.md)
+* [Esempio di competizione multipla con limite](TicketOffice/README.md)
