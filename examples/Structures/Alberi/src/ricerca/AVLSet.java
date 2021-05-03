@@ -128,7 +128,7 @@ public class AVLSet<E extends Comparable<E>> implements SortedSet<E> {
     }
 
     @Override
-    public SortedSet<E> headSet(E e) {
+    public SortedSet<E> headSet(E toElement) {
         throw new UnsupportedOperationException();
     }
 
@@ -144,12 +144,12 @@ public class AVLSet<E extends Comparable<E>> implements SortedSet<E> {
     }
 
     @Override
-    public SortedSet<E> subSet(E arg0, E arg1) {
+    public SortedSet<E> subSet(E fromElement, E toElement) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public SortedSet<E> tailSet(E arg0) {
+    public SortedSet<E> tailSet(E fromElement) {
         throw new UnsupportedOperationException();
     }
 

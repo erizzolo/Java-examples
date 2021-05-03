@@ -9,6 +9,8 @@ import binari.AlberoBinario;
 import binari.AlberoBinarioEfficiente;
 import generici.AlberoGenerico;
 import ricerca.ABRicerca;
+import ricerca.AVLNodeSet;
+import ricerca.AVLNodes;
 import ricerca.AVLSet;
 import ricerca.AlberoAVL;
 import ricerca.AlberoAVLDuplicates;
@@ -29,8 +31,10 @@ public class App {
         testString(new ABRicerca<String>("test"));
         testString(new AlberoAVLDuplicates<String>("test"));
         testString(new AlberoAVL<String>("test"));
+        testString(new AVLNodes<String>("test"));
         testSet(new TreeSet<Integer>());
         testSet(new AVLSet<Integer>());
+        testSet(new AVLNodeSet<Integer>());
     }
 
     public static void testString(Albero<String> albero) {
